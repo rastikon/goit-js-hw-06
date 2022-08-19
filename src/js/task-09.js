@@ -9,7 +9,7 @@ function getRandomHexColor() {
 }
 
 changeColor.addEventListener("click", () => {
-  document.body.style.backgroundColor = getRandomHexColor();
-  console.log("Зараз колір: ", getRandomHexColor());
-  backgroundColor.textContent = getRandomHexColor();
+  const currentBackgroundColor = getRandomHexColor();
+  document.body.style.backgroundColor = currentBackgroundColor;
+  backgroundColor.textContent = currentBackgroundColor;
 });
