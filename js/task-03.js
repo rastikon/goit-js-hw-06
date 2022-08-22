@@ -15,33 +15,16 @@ const images = [
 
 const galleryRef = document.querySelector(".gallery");
 
-const elements = [];
-
-for (const el of images) {
-  const item = galleryRef.insertAdjacentHTML(
-    "beforeend",
-    `<li>
-      <img src="${el.url}" alt="${el.alt}" width="350"></img>
-    </li>`
-  );
-  elements.push(item);
-}
+const listGallery = (el) => {
+  return `<li>
+         <img src="${el.url}" alt="${el.alt}" width="350"></img>
+          </li>`;
+};
+const markup = images.map(listGallery).join("");
+console.log(markup);
+galleryRef.insertAdjacentHTML("beforeend", markup);
 
 galleryRef.style.cssText = `
 display: flex;
 align-items: center;
 justify-content: space-between;`;
-
-// const markupGallery = images.map((option) => {
-//   const imageRef = document.createElement("img");
-
-//   imageRef.src = option.url;
-//   imageRef.alt = option.alt;
-
-//   imageRef.width = 320;
-
-//   return imageRef;
-// });
-
-// console.log(markupGallery);
-// galleryRef.append(...markupGallery);
